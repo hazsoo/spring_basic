@@ -82,6 +82,8 @@
 
 - XML 파일에 직접 Bean을 등록하여 설정하는 방법이 있다.
 
+- 생성자가 하나고, 파라미터가 Bean인 객체는 @Bean 없이도 Bean으로 주입 가능
+
 ### 2. Bean 사용 방법
 
 - **@Autowired**를 사용해서 Bean를 쓴다.
@@ -92,4 +94,21 @@
 
 ###### 의존성 주입
 
-- 생성자가 하나고, 파라미터가 Bean인 객체는 @Bean 없이도 Bean으로 주입 가능
+- Setter Injection
+
+  ```java
+  B b = new B();
+  A a = new A();
+  a.setB(b);
+  ```
+
+- Construction Injection
+
+  ```java
+  B b = new B();
+  A a = new A(b);
+  ```
+
+- Java에서도 많이 사용해 왔던 개념. 단지, 스프링에서는 이러한 일련의 과정을 (동적으로) 자동화 함.
+
+- 개발 핵심 처리 루틴의 수정 없이 객체를 다른 객체로 쉽게 대체하여 생성 가능하도록 하는 역할을 함.
